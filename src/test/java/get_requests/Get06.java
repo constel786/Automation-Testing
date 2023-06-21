@@ -67,6 +67,9 @@ public class Get06 extends HerOkuAppBaseUrl {
         //Create JsonPath Object
         JsonPath jsonPath = response.jsonPath();
 
+        System.out.println(jsonPath.getInt("totalprice")+9); //Does math operation
+        System.out.println(jsonPath.getString("totalprice")+9); //Does concatination
+
         //Get the data
         //Hard assertion
         assertEquals("John", jsonPath.getString("firstname"));
