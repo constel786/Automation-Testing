@@ -1,8 +1,12 @@
 package practice;
 
+import base_urls.ReqResBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
 
-public class Practice03 {
+import static io.restassured.RestAssured.given;
+
+public class Practice03 extends ReqResBaseUrl {
  /*
        Given
            https://reqres.in/api/users/2
@@ -23,6 +27,11 @@ public class Practice03 {
     */
 
     @Test
+    public void get03(){
+        spec.pathParams("first", "users", "second", 2);
+        Response response = given(spec).get("{first}/{second}");
+        response.prettyPrint();
 
+    }
 
 }
