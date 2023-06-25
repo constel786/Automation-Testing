@@ -30,8 +30,8 @@ public class Practice03 extends ReqResBaseUrl {
     public void get03(){
         spec.pathParams("first", "users", "second", 2);
         Response response = given(spec).get("{first}/{second}");
-        response.prettyPrint();
-
+        //response.prettyPrint();
+        System.out.println("response = " + response);git
     }
 
 }
