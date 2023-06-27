@@ -45,7 +45,6 @@ public class Practice05 extends ReqResBaseUrl {
 
         JsonPath json = response.jsonPath();
 
-
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertEquals(json.getString("data.name"), "true red", "Name does not match");
