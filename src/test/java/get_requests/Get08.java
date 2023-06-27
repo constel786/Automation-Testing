@@ -73,14 +73,14 @@ Then
         List<Integer> userIdList = jsonPath.getList("findAll{it.id<5}.userId");
         System.out.println("userIdList = " + userIdList);
 
-        //    Assert that the number of userIds whose ids are less than 5 is 4
+        //Assert that the number of userIds whose ids are less than 5 is 4
         assertEquals(4,userIdList.size());
 
         // 4)Print all titles whose ids are less than 5
         List<String> titleList= jsonPath.getList("findAll{it.id<5}.title");
         System.out.println("titleList = " + titleList);
 
-        // Assert that "delectus aut autem" is one of the titles whose id is less than 5
+        //Assert that "delectus aut autem" is one of the titles whose id is less than 5
         assertTrue(titleList.contains("delectus aut autem"));
 
         //FINISHED
