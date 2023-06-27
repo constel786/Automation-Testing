@@ -51,7 +51,8 @@ public class Practice05 extends ReqResBaseUrl {
         softAssert.assertEquals(json.getInt("data.year"), 2002, "Year does not match");
         softAssert.assertEquals(json.getString("data.color"), "#BF1932", "Color does not match");
         softAssert.assertEquals(json.getString("data.pantone_value"), "19-1664", "Pantone_value does not match");
-
+        softAssert.assertEquals(json.getInt("data.id"), 3, "ID does not match");
+        softAssert.assertAll();
 
 
 

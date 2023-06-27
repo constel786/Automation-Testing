@@ -10,6 +10,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 public class Get08 extends JsonPlaceHolderBaseUrl {
     /*
@@ -61,8 +62,27 @@ Then
         //Assert that there are 10 ids greater than 190
         assertEquals(10, idsGreaterThan190.size());
 
-        //2nd Way: By using the Groovy Language --> Recommended since it's easier and more dynamic
-        jsonPath.getList("findAll{it.id>190}"); // it: item
+        //2nd Way: By using the Groovy Language (Java-based programming language) --> Recommended since it's easier and more dynamic
+        List<Integer> idsGreaterThan190Groovy = jsonPath.getList("findAll{it.id>190}.id"); // it: item
+        System.out.println("idsGreaterThan190Groovy = " + idsGreaterThan190Groovy);
 
+        //Assert that there are 10 ids greater than 190
+        assertEquals(10, idsGreaterThan190Groovy.size());
+
+        // 3) Print all userIds whose ids are less than 5 on the console
+        List<Integer> userIdList = jsonPath.getList("findAll{it.id<5}.userId");
+        System.out.println("userIdList = " + userIdList);
+
+        //    Assert that the number of userIds whose ids are less than 5 is 4
+        assertEquals(4,userIdList.size());
+
+        // 4)Print all titles whose ids are less than 5
+        List<String> titleList= jsonPath.getList("findAll{it.id<5}.title");
+        System.out.println("titleList = " + titleList);
+
+        // Assert that "delectus aut autem" is one of the titles whose id is less than 5
+        assertTrue(titleList.contains("delectus aut autem"));
+
+        //FINISHED
     }
 }
