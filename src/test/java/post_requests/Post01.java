@@ -11,13 +11,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 public class Post01 extends JsonPlaceHolderBaseUrl {
      /*
-         Given
+        Given
            1) https://jsonplaceholder.typicode.com/todos
            2)  {
                  "userId": 55,
                  "title": "Tidy your room",
                  "completed": false
-              }
+                }
         When
             I send POST Request to the Url
         Then
@@ -36,7 +36,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         //Set the url
         spec.pathParam("first", "todos");
 
-        //Set the expected data --> Payload --> The data to transfer
+        //Set the expected data --> Payload: The data to transfer
         //We can create the payload by String but it is not Recommended! Because it is not going to be dynamic to get the data in assertion.
         String expectedData = " {\"userId\": 55,\"title\": \"Tidy your room\",\"completed\": false}";
 
