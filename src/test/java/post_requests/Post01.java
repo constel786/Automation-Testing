@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 public class Post01 extends JsonPlaceHolderBaseUrl {
@@ -19,7 +20,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
                  "completed": false
                 }
         When
-            I send POST Request to the Url
+            I send POST Request to the URL
         Then
             Status code is 201
         And
@@ -33,7 +34,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
 
     @Test
     public void post01() {
-        //Set the url
+        //Set the URL
         spec.pathParam("first", "todos");
 
         //Set the expected data --> Payload: The data to transfer
@@ -41,7 +42,26 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         String expectedData = " {\"userId\": 55,\"title\": \"Tidy your room\",\"completed\": false}";
 
         //Send the request and get the response
-        //In sending post request, the contentType must be declared..
+        //In sending a post request, the contentType must be declared.
+        Response response = given(spec).contentType(ContentType.JSON).body(expectedData).post("{first}");
+        response.prettyPrint();
+
+        //Do assertion
+        //1st Way:
+        JsonPath jsonPath = response.jsonPath();
+        assertEquals(201, response.statusCode());
+        assertEquals(55, jsonPath.getInt("userId"));
+        assertEquals("Tidy your room", jsonPath.getString("title"));
+        assertFalse(jsonPath.getBoolean("completed"));
+
+        //Or
+        //2nd Way:
+        response
+                .then()
+                .statusCode(201)
+                .body("userId", equalTo(55),
+                        "title", equalTo("Tidy your room"),
+                        "completed", equalTo(false));
 
     }
 }
