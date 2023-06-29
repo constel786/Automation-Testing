@@ -48,7 +48,7 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
         //Do assertion
         Map<String, Object> actualData = response.as(HashMap.class); //De-Serialization to turn Json to Java
-        //System.out.println("actualData = " + actualData);
+        System.out.println("actualData = " + actualData);
 
         assertEquals(200, response.statusCode());
         assertEquals(expectedData.get("completed"), actualData.get("completed"));
