@@ -35,7 +35,7 @@ public class Post04 extends JsonPlaceHolderBaseUrl {
         //Set the url
         spec.pathParam("first","todos");
 
-        //Set the expected data --> We will set th expected data sa Pojo class
+        //Set the expected data --> We will set the expected data as Pojo class
         JsonPlaceHolderPojo expectedData = new JsonPlaceHolderPojo(55,"Tidy your room",false);
         System.out.println("expectedData = " + expectedData);
 
