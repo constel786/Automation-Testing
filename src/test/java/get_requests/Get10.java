@@ -16,7 +16,7 @@ public class Get10 extends HerOkuAppBaseUrl {
 
         /*
         Given
-            https://restful-booker.herokuapp.com/booking/34
+            https://restful-booker.herokuapp.com/booking/13
         When
             I send GET Request to the url
         Then
@@ -37,7 +37,7 @@ public class Get10 extends HerOkuAppBaseUrl {
     @Test
     public void get10(){
         //Set the URL
-        spec.pathParams("first","booking","second",34);
+        spec.pathParams("first","booking","second",13);
 
         //Set the expected data --> First prepare inner map then outer map
         Map<String,String> bookingdatesMap = new HashMap<>();
@@ -76,7 +76,7 @@ public class Get10 extends HerOkuAppBaseUrl {
     @Test//Recommended way
     public void get10b(){
         //Set the url
-        spec.pathParams("first","booking","second",18);
+        spec.pathParams("first","booking","second",13);
 
         //Set the expected data --> First prepare inner map then outer map
         Map<String,String> bookingdatesMap = bookingdatesMapMethod("2018-01-01","2019-01-01");
