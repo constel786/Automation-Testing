@@ -66,7 +66,6 @@ public class Get10 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("lastname"), actualData.get("lastname"));
         assertEquals(expectedData.get("totalprice"), actualData.get("totalprice"));
         assertEquals(expectedData.get("depositpaid"), actualData.get("depositpaid"));
-        assertEquals(expectedData.get("depositpaid"), actualData.get("depositpaid"));
         assertEquals(((Map)expectedData.get("bookingdates")).get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
         //Since all values are inside Object container, we need to do type casting to use it as original data type.
         assertEquals(((Map)expectedData.get("bookingdates")).get("checkout"),((Map)actualData.get("bookingdates")).get("checkout"));
@@ -97,7 +96,6 @@ public class Get10 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("firstname"), actualData.get("firstname"));
         assertEquals(expectedData.get("lastname"), actualData.get("lastname"));
         assertEquals(expectedData.get("totalprice"), actualData.get("totalprice"));
-        assertEquals(expectedData.get("depositpaid"), actualData.get("depositpaid"));
         assertEquals(expectedData.get("depositpaid"), actualData.get("depositpaid"));
 
         assertEquals(bookingdatesMap.get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
