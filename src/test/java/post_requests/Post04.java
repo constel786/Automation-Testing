@@ -43,7 +43,7 @@ public class Post04 extends JsonPlaceHolderBaseUrl {
         Response response = given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
 
-        //Do assertion - continue here
+        Do assertion
 
 
 
