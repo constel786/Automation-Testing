@@ -85,7 +85,7 @@ public class Put02 extends DummyRestApiBaseUrl {
         assertEquals(expectedData.getEmployee_age(), actualData.getData().getEmployee_age());
         assertEquals(expectedData.getProfile_image(), actualData.getData().getProfile_image());
 
-        //If you need to assert the whole body -->
+        //If you need to assert the whole body (hard assertion since we write what we expect) -->
         assertEquals("success", actualData.getStatus());
         assertEquals("Successfully! Record has been updated.", actualData.getMessage());
     }
