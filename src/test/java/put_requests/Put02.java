@@ -34,10 +34,11 @@ public class Put02 extends DummyRestApiBaseUrl {
                     }
      */
     /*
+    TEST CASE:
     Given
         https://dummy.restapiexample.com/api/v1/update/21
     And
-      Request body: {
+      REQUEST body: {
                 "employee_name": "Ali Can",
                 "employee_salary": 111111,
                 "employee_age": 23,
@@ -48,7 +49,7 @@ public class Put02 extends DummyRestApiBaseUrl {
     Then
         Status code is 200
     And
-        Response body should be like:
+        RESPONSE body should be like:
                     {
                         "status": "success",
                         "data": {
