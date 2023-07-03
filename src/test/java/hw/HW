@@ -51,4 +51,4 @@ Task05:
         Assert that number of "Women" usertype is 12
 */
 
-//Note: Use prettyPrint() as --> response.jsonPath().prettyPrint();
+Note: Use prettyPrint() as --> response.jsonPath().prettyPrint();
