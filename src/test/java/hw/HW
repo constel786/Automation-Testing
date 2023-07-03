@@ -35,7 +35,7 @@ Task02:
      */
 
 
-Task 03: Type automation test code to create a 'user' by using "https://petstore.swagger.io/"" documantation.
+Task 03: Type automation test code to create a 'user' by using "https://petstore.swagger.io/"" documentation.
 
 
 Task 04: Using the https://petstore.swagger.io/ document, write an automation test that finds the number of "pets" with a status of "available" and asserts that those are more than 100.
@@ -49,8 +49,6 @@ Task05:
         User sends Get request
     Then
         Assert that number of "Women" usertype is 12
-
-
 */
 
 Note: Use prettyPrint() as --> response.jsonPath().prettyPrint();

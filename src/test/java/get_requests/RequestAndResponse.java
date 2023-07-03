@@ -52,19 +52,15 @@ public class RequestAndResponse {
         //To do Assertion, we need a testing framework such as HUnit, Test NG, Cucumber, etc.
 
         //How to get Status Code:
-
         //All the data that comes from the API is inside the "response"
-
         //HTTP Status Code should be 200
         System.out.println("Status Code: " + response.statusCode());
 
         //How to get Content Type:
-
         //Content Type should be JSON file format
         System.out.println("Content Type: " + response.contentType());
 
         //How to get Status Line:
-
         //Status Line should be HTTP/1.1 200 OK
         System.out.println("Status Line: " + response.statusLine());
 

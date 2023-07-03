@@ -40,7 +40,7 @@ Then
         //response.prettyPrint();
         
         //Do assertion
-        assertEquals(200, response.statusCode()); //1)Status code is 200
+        assertEquals(200, response.statusCode()); // 1)Status code is 200
 
         // 2)Print all ids greater than 190 on the console
 

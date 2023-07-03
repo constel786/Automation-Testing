@@ -1,4 +1,9 @@
 package pojos; //POJO: Plain Old Java Object
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true) // ==> This annotation ignores unrecognized fields, such as "id"
+
 public class JsonPlaceHolderPojo {
     //Create private fields
     private Integer userId;
@@ -34,9 +39,7 @@ public class JsonPlaceHolderPojo {
         this.title = title;
     }
 
-    public Boolean getCompleted() {
-        return completed;
-    }
+    public Boolean getCompleted() { return completed; }
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;

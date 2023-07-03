@@ -20,7 +20,7 @@ public class Get01 {
     */
 
     @Test
-    public void get01(){ //Test methods must be public and void wihtout parameters
+    public void get01(){ //Test methods must be public and void without parameters
 //        i) Set the URL
         String url = "https://restful-booker.herokuapp.com/booking/10";
 

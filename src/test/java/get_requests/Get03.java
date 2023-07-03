@@ -62,7 +62,7 @@ public class Get03 {
             2)If Java stops the execution in the first failure this is called "Hard Assertion"
             3)If Java does not stop the execution in the first failure this is called "Soft Assertion"
             4)If you use multiple body() method for assertion, it will work like "Hard Assertion"
-            5)If you use one single body() method with multiple assertion, it will work like "Soft Assertion"
+            5)If you use a single body() method with multiple assertion, it will work like "Soft Assertion"
          */
     }
 }

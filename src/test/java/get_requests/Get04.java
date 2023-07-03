@@ -35,7 +35,7 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
         //i) Set the url
         //String url = "https://jsonplaceholder.typicode.com/todos"; ==> This usage is not recommended. We will put base url into request specification in the base_url package.
         //To be able to reach spec object we need to extend to the related class.
-        spec.pathParam("first", "todos"); //With pathParam() method, we ass the parameters to the base url
+        spec.pathParam("first", "todos"); //With pathParam() method, we add the parameters to the base URL
         //"first" named parameter represents the "todos" parameter in the endpoint.
 
         //ii) Set the expected data
@@ -56,8 +56,8 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
         /*
         If response body returns as a list:
         We can check list size with hasSize() method
-        We can check if list contains an item with hasItem() method
-        We can check if list contains multiple items with hasItems() method
+        We can check if the list contains an item with hasItem() method
+        We can check if the list contains multiple items with hasItems() method
          */
     }
 }
