@@ -1,25 +1,20 @@
 package post_requests;
-
 import base_urls.JsonPlaceHolderBaseUrl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.JsonPlaceHolderTestData;
-
-import java.util.HashMap;
-import java.util.Map;
+import pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static test_data.JsonPlaceHolderTestData.expectedDataMap;
 
-public class Post06ObjectMapper extends JsonPlaceHolderBaseUrl {
-      /*
+public class Post06ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
+
+         /*
          Given
            1) https://jsonplaceholder.typicode.com/todos
-           2) {
-               "userId": 55,
+           2) { "userId": 55,
                "title": "Tidy your room",
                "completed": false
                }
@@ -40,10 +35,10 @@ public class Post06ObjectMapper extends JsonPlaceHolderBaseUrl {
     @Test
     public void post06() throws JsonProcessingException {
         //Set the url
-        spec.pathParam("first", "todos");
+        spec.pathParam("first","todos");
 
         //Set the expected data
-        Map<String, Object> expectedData = expectedDataMap(55, "Tidy your room", false);
+        JsonPlaceHolderPojo expectedData = new JsonPlaceHolderPojo(55,"Tidy your room",false);
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response
@@ -51,13 +46,13 @@ public class Post06ObjectMapper extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         //Do assertion
-        Map<String, Object> actualData = new ObjectMapper().readValue(response.asString(), HashMap.class);
+        JsonPlaceHolderPojo actualData = new ObjectMapper().readValue(response.asString(), JsonPlaceHolderPojo.class);
         System.out.println("actualData = " + actualData);
 
         assertEquals(201, response.statusCode());
-        assertEquals(expectedData.get("completed"), actualData.get("completed"));
-        assertEquals(expectedData.get("title"), actualData.get("title"));
-        assertEquals(expectedData.get("userId"), actualData.get("userId"));
+        assertEquals(expectedData.getCompleted(), actualData.getCompleted());
+        assertEquals(expectedData.getUserId(), actualData.getUserId());
+        assertEquals(expectedData.getTitle(), actualData.getTitle());
 
     }
 }
