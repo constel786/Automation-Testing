@@ -36,7 +36,6 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
         Map<String, Object> expectedData = expectedDataMap(null, "Read the books", null);
 
         //System.out.println("expectedData = " + expectedData);
-//comment
 
     }
 }
