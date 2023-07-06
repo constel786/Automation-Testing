@@ -13,7 +13,7 @@ public class Get12ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
    /*
         Given
            https://jsonplaceholder.typicode.com/todos/198
-        When
+         When
          I send GET Request to the URL
       Then
          Status code is 200

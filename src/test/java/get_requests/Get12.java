@@ -1,10 +1,8 @@
 package get_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.junit.Test;
-import utils.ObjectMapperUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +10,6 @@ import java.util.Map;
 import static Utils.ObjectMapperUtils.convertJsonToJava;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static utils.ObjectMapperUtils.convertJsonToJava;
 
 public class Get12 extends JsonPlaceHolderBaseUrl {
 
