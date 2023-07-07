@@ -50,6 +50,6 @@ public class Delete01 extends JsonPlaceHolderBaseUrl {
         //3rd Way:
         assertEquals(0, actualData.size());
 
-        /Be careful when you do delete request. Do not delete anyone else's data. First create data and delete it.
+        //Be careful when you do delete request. Do not delete anyone else's data. First create data and delete it.
     }
 }
