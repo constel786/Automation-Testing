@@ -57,7 +57,7 @@ And
     Collections.sort(ages);
     System.out.println("ages = " + ages);
 
-    assertEquals(66, ages.get(ages.size())-1);
+    assertEquals(66, (int)ages.get((ages.size())-1));
 
 
 }
