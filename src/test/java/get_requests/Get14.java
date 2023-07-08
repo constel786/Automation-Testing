@@ -1,6 +1,7 @@
 package get_requests;
 
 import base_urls.DummyRestApiBaseUrl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -51,15 +52,37 @@ And
             .statusCode(200)
             .body("data", hasSize(24),
                     "data.employee_name", hasItems("Tiger Nixon", "Garrett Winters"));
+
     //The greatest age is 66
-    List<Integer> ages = response.jsonPath().getList("data.employee_age");
+    JsonPath jsonPath = response.jsonPath();
+    List<Integer> ages = jsonPath.getList("data.employee_age");
     System.out.println("ages = " + ages);
     Collections.sort(ages);
     System.out.println("ages = " + ages);
 
     assertEquals(66, (int)ages.get((ages.size())-1));
 
+    //The name of the lowest age is "Tatyana Fitzpatrick"
+    Object nameOfLowestAge = jsonPath.getList("data.findAll{it.employee_age=="+ages.get(0)+"}.employee_name").get(0);
+    System.out.println("nameOfLowestAge = " + nameOfLowestAge);
+    assertEquals("Tatyana Fitzpatrick", nameOfLowestAge);
 
-}
+    //Total salary of all employees is 6644770
+    List<Integer> salaries = jsonPath.getList("data.employee_salary");
+    System.out.println("salaries = " + salaries);
 
+    //1st Way of summing salaries - traditional way (for-each loop)
+    int sumOfSalaries = 0;
+    for (int w : salaries){
+        sumOfSalaries += w; // --> sumOfSalaries + w
+    }
+    System.out.println("sumOfSalaries = " + sumOfSalaries);
+    assertEquals(6644770, sumOfSalaries);
+
+    //2nd Way: Lambda
+    int sumOfSalariesLambda = salaries.stream().reduce(0, Integer::sum); //instead of unrecommended (0, (t,u) -> (t+u)) lambda method
+    System.out.println("sumOfSalariesLambda = " + sumOfSalariesLambda);
+    assertEquals(6644770, sumOfSalariesLambda);
+
+    }
 }
