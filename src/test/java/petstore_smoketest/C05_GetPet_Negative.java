@@ -19,9 +19,7 @@ public class C05_GetPet_Negative extends PetStoreBaseUrl {
             "message": "Pet not found"
         }
      */
-    @Test
-    public void get02(){
-        //Set the url
+
 
 
 
