@@ -1,15 +1,20 @@
 package gmibank_api;
 
 import base_urls.GmiBankBaseUrl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.CountryPost;
 import pojos.State;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import static Utils.ObjectMapperUtils.convertJsonToJava;
 import static io.restassured.RestAssured.given;
+import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class CreateCountry extends GmiBankBaseUrl {
@@ -79,8 +84,42 @@ public void post01(){
                     "states.name[2]", equalTo(state3.getName())
             );
 
+    //2nd Validation
+    JsonPath jsonPath = response.jsonPath();
+
+    assertEquals(201, response.statusCode());
+    assertEquals(expectedData.getName(), jsonPath.getString("name"));
+    
+    assertEquals(state1.getId(), jsonPath.getList("states.id").get(0));
+    assertEquals(state1.getName(), jsonPath.getList("states.name").get(0));
+
+    //3rd Validation
+    Map<String, Object> actualDataMap =  response.as(HashMap.class);
+    System.out.println("actualDataMap = " + actualDataMap);
+
+    assertEquals(201, response.statusCode());
+    assertEquals(expectedData.getName(), actualDataMap.get("name"));
+    assertEquals(state1.getId(), ((Map)((List)actualDataMap.get("states")).get(0)).get("id"));
+    assertEquals(state1.getName(), ((Map)((List)actualDataMap.get("states")).get(0)).get("name"));
+
+    //4th Validation
 
 
-}
+    //5th Validation --> Best practice: Pojo Class + Object Mapper
+    CountryPost actualDataPojoMapper = convertJsonToJava(response.asString(), CountryPost.class);
+    System.out.println("actualDataPojoMapper = " + actualDataPojoMapper);
 
+    assertEquals(expectedData.getName(), actualDataPojoMapper.getName());
+
+    assertEquals(state1.getId(), actualDataPojoMapper.getStates().get(0).getId());
+    assertEquals(state1.getName(), actualDataPojoMapper.getStates().get(0).getName());
+
+    assertEquals(state2.getId(), actualDataPojoMapper.getStates().get(1).getId());
+    assertEquals(state2.getName(), actualDataPojoMapper.getStates().get(1).getName());
+
+    assertEquals(state3.getId(), actualDataPojoMapper.getStates().get(2).getId());
+    assertEquals(state3.getName(), actualDataPojoMapper.getStates().get(2).getName());
+
+
+    }
 }
