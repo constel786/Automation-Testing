@@ -145,7 +145,7 @@ public void post01(){
     assertEquals(state2.getName(), actualDataPojoGson.getStates().get(1).getName());
 
     //assertEquals(state3.getId(), actualDataPojoGson.getStates().get(2).getId());
-    //assertEquals(state3.getName(), actualDataPojoGson.getStates().get(2).getName());
+    assertEquals(state3.getName(), actualDataPojoGson.getStates().get(2).getName());
 
 
 }
